@@ -1,13 +1,11 @@
-import React from 'react'
+import React from 'react';
+import { GithubOutlined } from '@ant-design/icons';
+import { Layout, Space, Typography } from 'antd';
+import Image from 'next/image';
+import styles from './index.module.less';
 
-import { GithubOutlined } from '@ant-design/icons'
-import { Layout, Space, Typography } from 'antd'
-
-import styles from './index.module.less'
-
-const { Link } = Typography
-
-const { Header } = Layout
+const { Link } = Typography;
+const { Header } = Layout;
 
 const HeaderBar = () => {
   return (
@@ -15,7 +13,7 @@ const HeaderBar = () => {
       <Header className={styles.header}>
         <div className={styles.logoBar}>
           <Link href="/">
-            <img alt="logo" src="/logo192.png" />
+            <Image alt="logo" src="/logo192.png" width={50} height={50} />
             <h1>ChatGPT Minimal</h1>
           </Link>
         </div>
@@ -23,7 +21,7 @@ const HeaderBar = () => {
           <span className={styles.right}>
             <Link
               className={styles.action}
-              href="https://github.com/blrchen/chatgpt-minimal"
+              href="https://github.com/blrchen/chat-api"
               target="_blank"
             >
               <GithubOutlined />
@@ -33,7 +31,7 @@ const HeaderBar = () => {
       </Header>
       <div className={styles.vacancy} />
     </>
-  )
-}
+  );
+};
 
-export default HeaderBar
+export default HeaderBar;
