@@ -1,6 +1,6 @@
 # chat-api
 
-This system based on [ChatGPT Minimal](https://github.com/blrchen/chatgpt-minimal)
+This system based on [ChatGPT Minimal](https://github.com/blrchen/chat-api)
 
 I will use this system on my experiment
 
@@ -31,7 +31,7 @@ Refer to the [Environment Variables](#environment-variables) section for require
 ### Deploy on Vercel
 
 Click the button below to deploy on Vercel:
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fblrchen%2Fchatgpt-minimal&project-name=chatgpt-minimal&framework=nextjs&repository-name=chatgpt-minimal)
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fblrchen%2Fchat-api&project-name=chat-api&framework=nextjs&repository-name=chat-api)
 
 ### Deploy with Docker
 
@@ -40,7 +40,7 @@ For OpenAI account users:
 ```
 docker run -d -p 3000:3000 \
    -e OPENAI_API_KEY="<REPLACE-ME>" \
-   blrchen/chatgpt-minimal
+   blrchen/chat-api
 ```
 
 For Azure OpenAI account users:
@@ -50,7 +50,7 @@ docker run -d -p 3000:3000 \
    -e AZURE_OPENAI_API_BASE_URL="<REPLACE-ME>" \
    -e AZURE_OPENAI_API_KEY="<REPLACE-ME>" \
    -e AZURE_OPENAI_DEPLOYMENT="<REPLACE-ME>" \
-   blrchen/chatgpt-minimal
+   blrchen/chat-api
 ```
 
 ## Development
@@ -90,6 +90,3 @@ For Azure OpenAI account:
 | AZURE_OPENAI_API_KEY      | Key                                            |
 | AZURE_OPENAI_DEPLOYMENT   | Model deployment name                          |
 
-## Contribution
-
-We welcome PRs of all sizes.
