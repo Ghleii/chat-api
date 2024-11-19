@@ -60,7 +60,7 @@ docker run -d -p 3000:3000 \
 1. Install NodeJS 20.
 2. Clone the repository.
 3. Install dependencies with `npm install`.
-4. Copy `.env.example` to `.env.local` and modify environment variables as needed.
+4. Copy `.env.example` to `.env` and modify environment variables as needed.
 5. Start the application using `npm run dev`.
 6. Open `http://localhost:3000` in your browser.
 

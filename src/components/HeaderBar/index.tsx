@@ -3,6 +3,7 @@ import { GithubOutlined } from '@ant-design/icons';
 import { Layout, Space, Typography } from 'antd';
 import Image from 'next/image';
 import styles from './index.module.less';
+import { signIn, signOut, useSession } from "next-auth/react";
 
 const { Link } = Typography;
 const { Header } = Layout;
@@ -14,18 +15,12 @@ const HeaderBar = () => {
         <div className={styles.logoBar}>
           <Link href="/">
             <Image alt="logo" src="/logo192.png" width={50} height={50} />
-            <h1>ChatGPT Minimal</h1>
+            <h1>Chat System</h1>
           </Link>
         </div>
         <Space className={styles.right} size={0}>
           <span className={styles.right}>
-            <Link
-              className={styles.action}
-              href="https://github.com/blrchen/chat-api"
-              target="_blank"
-            >
-              <GithubOutlined />
-            </Link>
+            <button onClick={() => signOut()}>ログアウト</button>
           </span>
         </Space>
       </Header>
