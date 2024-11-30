@@ -1,6 +1,6 @@
 # chat-api
 
-This system based on [ChatGPT Minimal](https://github.com/blrchen/chat-api)
+This system based on [ChatGPT Minimal](https://github.com/blrchen/chatgpt-minimal)
 
 I will use this system on my experiment
 
