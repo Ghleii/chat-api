@@ -9,6 +9,25 @@ export default NextAuth({
     }),
   ],
   secret: process.env.NEXTAUTH_SECRET,
-  // 開発環境の場合はデバッグモードを有効にすることをお勧めします
+  session: {
+    strategy: 'jwt', // JWTを使用
+  },
+  callbacks: {
+    async jwt({ token, user }) {
+      if (user) {
+        token.email = user.email; // JWTにユーザ情報を追加
+      }
+      return token;
+    },
+    async session({ session, token }) {
+      if (token.email) {
+        session.user.email = token.email; // セッションにユーザ情報を追加
+      }
+      return session;
+    },
+    async redirect({ url, baseUrl }) {
+      return url.startsWith(baseUrl) ? url : baseUrl; // 認証後のリダイレクトURL
+    },
+  },
   debug: process.env.NODE_ENV === 'development',
 });
