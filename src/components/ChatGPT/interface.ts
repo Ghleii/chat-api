@@ -22,9 +22,10 @@ export interface ChatMessageItemProps {
 export interface SendBarProps {
   loading: boolean
   disabled: boolean
-  onSend: (message: ChatMessage) => void
+  onSend: (message: { content: string, role: ChatRole }) => void
   onClear: () => void
   onStop: () => void
+  messages: { content: string }[]
 }
 
 export interface ShowProps {

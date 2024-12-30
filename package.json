@@ -17,12 +17,12 @@
     "antd": "4.23.6",
     "clipboard": "2.0.11",
     "eventsource-parser": "1.0.0",
+    "json2csv": "^6.0.0-alpha.2",
     "lodash-es": "4.17.21",
     "markdown-it": "13.0.1",
     "markdown-it-highlightjs": "4.0.1",
     "markdown-it-katex": "2.0.3",
     "next": "13.5.6",
-    "next-auth": "^4.24.10",
     "next-with-less": "3.0.1",
     "react": "18.2.0",
     "react-dom": "18.2.0",
@@ -31,11 +31,13 @@
   "devDependencies": {
     "@types/lodash-es": "4.17.8",
     "@types/markdown-it": "12.2.3",
-    "@types/node": "20.5.7",
+    "@types/next-auth": "^3.13.0",
+    "@types/node": "^20.17.10",
     "@types/react": "18.2.21",
     "@types/react-dom": "18.2.7",
     "eslint": "8.45.0",
     "eslint-config-next": "13.4.10",
+    "next-auth": "^4.24.11",
     "prettier": "3.2.5",
     "typescript": "5.2.2"
   }

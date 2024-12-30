@@ -25,6 +25,7 @@ const ChatGPT = (props: ChatGPTProps) => {
         onSend={onSend}
         onClear={onClear}
         onStop={onStop}
+        messages={messages}
       />
     </div>
   )
