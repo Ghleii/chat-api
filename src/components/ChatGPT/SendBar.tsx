@@ -1,12 +1,13 @@
+// メッセージ部分のコンポーネント
 import React, { KeyboardEventHandler, useRef } from 'react'
 
-import { ClearOutlined, SendOutlined } from '@ant-design/icons'
+import { ClearOutlined, SendOutlined, CopyOutlined } from '@ant-design/icons'
 
 import { ChatRole, SendBarProps } from './interface'
 import Show from './Show'
 
 const SendBar = (props: SendBarProps) => {
-  const { loading, disabled, onSend, onClear, onStop } = props
+  const { loading, disabled, onSend, onClear, onStop, messages } = props
 
   const inputRef = useRef<HTMLTextAreaElement>(null)
 
@@ -47,6 +48,15 @@ const SendBar = (props: SendBarProps) => {
     }
   }
 
+  const handleCopy = () => {
+    const allMessages = messages.map(message => message.content).join('\n');
+    navigator.clipboard.writeText(allMessages).then(() => {
+      alert('会話がクリップボードにコピーされました');
+    }).catch(err => {
+      console.error('Failed to copy: ', err);
+    });
+  };
+
   return (
     <Show
       fallback={
@@ -73,8 +83,11 @@ const SendBar = (props: SendBarProps) => {
         <button className="button" title="Send" disabled={disabled} onClick={handleSend}>
           <SendOutlined />
         </button>
-        <button className="button" title="Clear" disabled={disabled} onClick={handleClear}>
+        {/* <button className="button" title="Clear" disabled={disabled} onClick={handleClear}>
           <ClearOutlined />
+        </button> */}
+        <button className="button" title="Copy Conversation" disabled={disabled} onClick={handleCopy}>
+          <CopyOutlined />
         </button>
       </div>
     </Show>

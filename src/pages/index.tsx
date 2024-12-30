@@ -9,19 +9,13 @@ import HeaderBar from '@/components/HeaderBar'
 
 import styles from './index.module.less'
 
-// export default function Home() {
-//   return (
-//     <Layout hasSider className={styles.layout}>
-//       <Layout>
-//         <HeaderBar />
-//         <Content className={styles.main}>
-//           <ChatGPT fetchPath="/api/chat-completion" />
-//         </Content>
-//         <FooterBar />
-//       </Layout>
-//     </Layout>
-//   )
-// }
+// "{!session ? (" の後に追加することでログイン機能を有効にする
+/* <>
+<h2>ようこそ！以下のボタンを押してログインしてください．</h2>
+<button onClick={() => signIn("google")}>Sign in with Google</button>
+</>
+) : (
+<> */
 
 export default function Home() {
   const { data: session } = useSession();
@@ -30,8 +24,15 @@ export default function Home() {
     <div>
       {!session ? (
         <>
-          <h2>ようこそ！以下のボタンを押してログインしてください．</h2>
-          <button onClick={() => signIn("google")}>Sign in with Google</button>
+          <Layout hasSider className={styles.layout}>
+            <Layout>
+              <HeaderBar />
+              <Content className={styles.main}>
+          <ChatGPT fetchPath="/api/chat-completion" />
+              </Content>
+              <FooterBar />
+            </Layout>
+          </Layout>
         </>
       ) : (
         <>
