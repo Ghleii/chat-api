@@ -49,13 +49,16 @@ const SendBar = (props: SendBarProps) => {
   }
 
   const handleCopy = () => {
-    const allMessages = messages.map(message => message.content).join('\n');
+    const allMessages = messages.map(message => {
+      const roleTag = 'role' in message && message.role === ChatRole.User ? 'ユーザー' : 'システム'
+      return `${roleTag}: ${message.content}`
+    }).join('\n')
     navigator.clipboard.writeText(allMessages).then(() => {
-      alert('会話がクリップボードにコピーされました');
+      alert('会話がクリップボードにコピーされました')
     }).catch(err => {
-      console.error('Failed to copy: ', err);
-    });
-  };
+      console.error('Failed to copy: ', err)
+    })
+  }
 
   return (
     <Show
