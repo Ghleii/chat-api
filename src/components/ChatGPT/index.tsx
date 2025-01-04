@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 
 import { ChatGPTProps, ChatRole } from './interface'
 import MessageItem from './MessageItem'
@@ -10,6 +10,19 @@ import 'highlight.js/styles/atom-one-dark.css'
 
 const ChatGPT = (props: ChatGPTProps) => {
   const { loading, disabled, messages, currentMessage, onSend, onClear, onStop } = useChatGPT(props)
+  const [initialMessageSent, setInitialMessageSent] = useState(false)
+
+  useEffect(() => {
+    if (!initialMessageSent) {
+      // ページを開くと同時に指定のプロンプトでAPIに発話
+      const initialMessage = {
+        content: 'こんにちは、どのようにお手伝いできますか？',
+        role: ChatRole.User
+      }
+      onSend(initialMessage)
+      setInitialMessageSent(true)
+    }
+  }, [initialMessageSent, onSend])
 
   return (
     <div className="chat-wrapper">
