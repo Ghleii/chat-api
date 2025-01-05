@@ -12,6 +12,7 @@ const ChatGPT = (props: ChatGPTProps) => {
   const { loading, disabled, messages, currentMessage, onSend, onClear, onStop, setMessages } = useChatGPT(props)
   const [initialMessageSent, setInitialMessageSent] = useState(false)
   const [conversationCount, setConversationCount] = useState(0)
+  const [conversationEnded, setConversationEnded] = useState(false)
 
   useEffect(() => {
     if (!initialMessageSent) {
@@ -39,6 +40,7 @@ const ChatGPT = (props: ChatGPTProps) => {
         }
         // 終了メッセージまでの表示時間を設定（1.5秒）時間を空けないとAPIのメッセージより先に表示されてしまう
         setMessages((prevMessages) => [...prevMessages, endMessage])
+        setConversationEnded(true) // 会話終了フラグを設定
       }, 1500)
     }
   }
@@ -53,7 +55,7 @@ const ChatGPT = (props: ChatGPTProps) => {
       )}
       <SendBar
         loading={loading}
-        disabled={disabled}
+        disabled={disabled || conversationEnded} // 会話終了フラグを反映
         onSend={handleSend}
         onClear={onClear}
         onStop={onStop}
