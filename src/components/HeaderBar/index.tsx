@@ -20,7 +20,7 @@ const HeaderBar = () => {
         </div>
         <Space className={styles.right} size={0}>
           <span className={styles.right}>
-            <button onClick={() => signOut()}>ログアウト</button>
+            {/* <button onClick={() => signOut()}>ログアウト</button> */}
           </span>
         </Space>
       </Header>
