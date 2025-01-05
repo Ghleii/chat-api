@@ -131,6 +131,7 @@ export const useChatGPT = (props: ChatGPTProps) => {
     currentMessage,
     onSend,
     onClear,
-    onStop
+    onStop,
+    setMessages
   }
 }
