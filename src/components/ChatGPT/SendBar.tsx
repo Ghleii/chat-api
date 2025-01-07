@@ -77,7 +77,7 @@ const SendBar = (props: SendBarProps) => {
           ref={inputRef!}
           className="input"
           disabled={disabled}
-          placeholder="Shift + Enter for new line"
+          placeholder="ここに入力してください"
           autoComplete="off"
           rows={1}
           onKeyDown={onKeydown}
@@ -89,7 +89,7 @@ const SendBar = (props: SendBarProps) => {
         {/* <button className="button" title="Clear" disabled={disabled} onClick={handleClear}>
           <ClearOutlined />
         </button> */}
-        <button className="button" title="Copy Conversation" disabled={disabled} onClick={handleCopy}>
+        <button className="button" title="Copy Conversation" onClick={handleCopy}>
           <CopyOutlined />
         </button>
       </div>
